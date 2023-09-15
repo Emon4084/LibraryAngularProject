@@ -1,0 +1,87 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-4">
+      <div *ngIf="!editingSubscriptionPlan">
+        <h2>Create New Subscription Plan</h2>
+        <form (submit)="createSubscriptionPlan()" class="form">
+          <div class="form-group">
+            <label for="newPlanName">Plan Name:</label>
+            <input type="text" id="newPlanName" [(ngModel)]="newSubscriptionPlan.planName" name="newPlanName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="newPlanDescription">Plan Description:</label>
+            <input type="text" id="newPlanDescription" [(ngModel)]="newSubscriptionPlan.planDescription" name="newPlanDescription" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="newPlanPrice">Plan Price:</label>
+            <input type="number" id="newPlanPrice" [(ngModel)]="newSubscriptionPlan.planPrice" name="newPlanPrice" class="form-control" required>
+          </div>
+          <div class="form-group row">
+            <label for="newPublisherIsActive" class="col-sm-3 col-form-label">Is Active:</label>
+            <div class="col-sm-9">
+              <div class="form-check">
+                <input type="checkbox" id="newPublisherIsActive" [(ngModel)]="newSubscriptionPlan.isActive" name="newPublisherIsActive" class="form-check-input mt-2" required>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+      <div *ngIf="editingSubscriptionPlan">
+        <h2>Edit Subscription Plan</h2>
+        <form (submit)="saveEdit()" class="form">
+          <input type="hidden" [(ngModel)]="editingSubscriptionPlan.subscriptionPlanId" name="editPlanId">
+          <div class="form-group">
+            <label for="editPlanName">Plan Name:</label>
+            <input type="text" id="editPlanName" [(ngModel)]="editingSubscriptionPlan.planName" name="editPlanName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="editPlanDescription">Plan Description:</label>
+            <input type="text" id="editPlanDescription" [(ngModel)]="editingSubscriptionPlan.planDescription" name="editPlanDescription" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="editPlanPrice">Plan Price:</label>
+            <input type="number" id="editPlanPrice" [(ngModel)]="editingSubscriptionPlan.planPrice" name="editPlanPrice" class="form-control" required>
+          </div>
+          <div class="form-group row">
+            <label for="editPublisherIsActive" class="col-sm-3 col-form-label">Is Active:</label>
+            <div class="col-sm-9">
+              <div class="form-check">
+                <input type="checkbox" id="editPublisherIsActive" [(ngModel)]="editingSubscriptionPlan.isActive" name="editPublisherIsActive" class="form-check-input mt-2" required>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-8">
+      <h2>Subscription Plan List</h2>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Plan Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Is Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plan of subscriptionPlans">
+            <td>{{ plan.subscriptionPlanId }}</td>
+            <td>{{ plan.planName }}</td>
+            <td>{{ plan.planDescription }}</td>
+            <td>{{ plan.planPrice }}</td>
+            <td>{{ plan.isActive }}</td>
+            <td>
+              <button (click)="editSubscriptionPlan(plan)" class="btn btn-warning">Edit</button>
+              <button (click)="deleteSubscriptionPlan(plan.subscriptionPlanId)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

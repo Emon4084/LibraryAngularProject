@@ -1,0 +1,62 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-4">
+      <div *ngIf="!editingBookFloor">
+        <h2>Create New BookFloor</h2>
+        <form (submit)="createBookFloor()" class="form">
+          <div class="form-group">
+            <label for="newBookFloorName">BookFloor:</label>
+            <input type="text" id="newBookFloorName" [(ngModel)]="newBookFloor.bookFloorName" name="newBookFloorName" class="form-control" required>
+          </div>    
+         
+          <div class="form-check">
+            <label for="newBookFloorIsActive">Is Active:</label>
+            <input type="checkbox" id="newBookFloorIsActive" [(ngModel)]="newBookFloor.isActive" name="newBookFloorIsActive" class="form-check-input" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+
+      <div *ngIf="editingBookFloor">
+        <h2>Edit BookFloor</h2>
+        <form (submit)="saveEdit()" class="form">
+          <input type="hidden" [(ngModel)]="editingBookFloor.bookFloorId" name="editBookFloorid">
+          <div class="form-group">
+            <label for="editBookFloorName">BookFloorName:</label>
+            <input type="text" id="editBookFloorName" [(ngModel)]="editingBookFloor.bookFloorName" name="editBookFloorName" class="form-control" required>
+          </div>
+          <div class="form-check">
+            <label for="editBookFloorIsActive">Is Active</label>
+            <input type="checkbox" id="editBookFloorIsActive" [(ngModel)]="editingBookFloor.isActive" name="editBookFloorIsActive" class="form-check-input" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-8">
+      <h2>BookFloor List</h2>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>BookFloor Name</th>
+            <th>Is Active?</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bookFloor of bookFloors">
+            <td>{{ bookFloor.bookFloorId }}</td>
+            <td>{{ bookFloor.bookFloorName }}</td>
+            <td>{{ bookFloor.isActive }}</td>
+            <td>
+              <button (click)="editBookFloor(bookFloor)" class="btn btn-warning">Edit</button>
+              <button (click)="deleteBookFloor(bookFloor.bookFloorId)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
