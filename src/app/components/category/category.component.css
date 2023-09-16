@@ -1,82 +1,82 @@
 
 label{
-    padding: 1px;
+  padding: 1px;
 }
 
 .container-md{
-    background-color:aliceblue;
-    color:black;
+  background-color:aliceblue;
+  color:black;
 }
 
 .col-md-8 {
-  background-color: aliceblue;
-  color: black;
+background-color: aliceblue;
+color: black;
 }
 
 mat-table {
-  border-color:#000000;
-  background-color: white;
-  color: black;
+border-color:#000000;
+background-color: white;
+color: black;
 }
 
 .table::target-text {
 
-  color: black;
+color: black;
 }
 
 .table-header {
-  background-color: beige;
-  color: black;
-  font-size: 16px;
-  border-bottom-color: black;
+background-color: beige;
+color: black;
+font-size: 16px;
+border-bottom-color: black;
 }
 
 .filter {
-  width:100%;
-  border-color: blue;
+width:100%;
+border-color: blue;
 /*  background-color: white;
 */  color: black;
 }
 
 .filter-label{
-    background-color:black;
-    color:white;
+  background-color:black;
+  color:white;
 }
 
 .filter::placeholder {
-  background-color: white;
-  color: black !important;
+background-color: white;
+color: black !important;
 }
 
 
 .celvalue{
-   color: black;
-   border-bottom-color:black;
-   
+ color: black;
+ border-bottom-color:black;
+ 
 }
 
 .card {
-  margin-top: 68px;
-  height: 280px;
-  padding: 7px;
-  height: 310px;
+margin-top: 68px;
+height: 280px;
+padding: 7px;
+height: 310px;
 }
 
 
 .card-header {
-  background-color: gainsboro;
+background-color: gainsboro;
 }
 
 .form-group {
-  padding:2px;
+padding:2px;
 }
 
 .filtering{
-    background-color: white;
+  background-color: white;
 }
 
 
 
 .mat-form-field-label{
-    color: #000000;
+  color: #000000;
 }

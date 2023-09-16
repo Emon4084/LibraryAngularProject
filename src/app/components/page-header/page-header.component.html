@@ -3,7 +3,7 @@
       <span>
           <a mat-link href="/home" class="logo">
               <img src="../../../assets/img/book-logo-png-12.png" alt="Logo" width="45" height="42">
-          SCRIBD</a>
+          Library</a>
       </span>
       <span class="example-spacer"></span>
       
@@ -33,12 +33,12 @@
 
       <div class="login-register">
           <mat-menu #userMenu="matMenu">
-              <button mat-menu-item routerLink="/login">
+              <button mat-menu-item routerLink="/account/login">
                   <mat-icon>login</mat-icon>
                   <span>Login</span>
               </button>
               
-              <button mat-menu-item routerLink="/register">
+              <button mat-menu-item routerLink="/account/register">
               <!-- (click)="logOut()" -->
                   <mat-icon>Registration</mat-icon>
                   <span>Registration</span>
@@ -52,14 +52,9 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-toolbar class="head-2">
+  <!-- <mat-toolbar class="head-2">
       <mat-toolbar-row>
-          <!-- <button mat-icon-button class="example-icon" aria-hidden="true" aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
-          </button> -->
-          <!-- <a mat-raised-button routerLink="/home">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-          </a> -->
+          
          
           <button mat-button [matMenuTriggerFor]="menu" >Book</button>
           <mat-menu #menu="matMenu">
@@ -75,4 +70,12 @@
   
              
         </mat-toolbar-row>
-  </mat-toolbar>
+  </mat-toolbar> -->
+
+
+  <!-- <button mat-icon-button class="example-icon" aria-hidden="true" aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+          </button> -->
+          <!-- <a mat-raised-button routerLink="/home">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+          </a> -->
