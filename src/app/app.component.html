@@ -1,8 +1,50 @@
+<!-- <div class="container-fluid">
+  <div class="header">
+    <page-header></page-header>
+  </div>
+  <div class="main-container">
+            Hide the navbar for non-registered users
+    <div class="nav-var" *ngIf="authService.isLoggedIn()">
+      <app-navbar></app-navbar>
+    </div>
+            Hide the adminsidenav for non-admin users
+    <div class="sid-nev" *ngIf="authService.isAdmin()">
+      <app-adminsidenav></app-adminsidenav>
+    </div>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 
-<!-- <page-header></page-header> -->
-<app-navbar></app-navbar>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div> -->
+<!-- Hide the navbar for non-registered users -->
+<!-- Hide the adminsidenav for non-admin users -->
 
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="header">
+    <page-header></page-header>
+  </div>
+
+  <div class="nav-var">
+    <!-- <app-navbar></app-navbar> -->
+  </div>
+  
+  <div class="main-container">
+    
+    <div class="sid-nev">
+      <app-adminsidenav></app-adminsidenav>
+    </div>
+
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
 </div>
 

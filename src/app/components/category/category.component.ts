@@ -72,7 +72,7 @@ export class CategoryComponent implements OnInit {
     const startIndex = currentPage * itemsPerPage;
     this.categories.slice(startIndex, startIndex + itemsPerPage).forEach((brand, index) => {
       const adjustedIndex = startIndex + index + 1;
-      (brand as any)[''] = this.toRoman(adjustedIndex);   // categoryId      //update this line for Roman no show instanc fo Id no
+      (brand as any)['/*categoryId*/'] = this.toRoman(adjustedIndex);       //update this line for Roman no show instanc fo Id no
     });
     this.dataSource.data = this.categories;
   }
@@ -163,9 +163,5 @@ export class CategoryComponent implements OnInit {
         });
     }
   }
-
-
-
-
 
 }
