@@ -1,16 +1,15 @@
 /* Custom CSS for the footer */
 .footer {
-    background-color: #333;
-    color: white;
+    background-color: rgb(240,242,249);
+    color: rgb(14, 13, 13);
     padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 50px;
 }
 
 .footer h3 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .footer ul {
@@ -23,16 +22,19 @@
 }
 
 .footer a {
-    color: white;
+    color: rgb(14, 13, 13);
     text-decoration: none;
+    font-weight: 450;
 }
-
+.footer a:hover {
+    color: rgb(33,104, 112);
+}
  /* Create space between links in the first div */
  .footer .col-xl-4:first-child a {
     margin-right: 10px;
 }
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1400px) {
     .footer .col-xl-2 {
         flex-basis: 20%;
         max-width: 20%;
@@ -40,14 +42,14 @@
     }
 
     .footer .col-xl-4 {
-        flex-basis: 50%; /* First div */
+        flex-basis: 50%;
         max-width: 50%;
         width: 100%;
     }
 
     .footer .col-xl-4:nth-child(n+2) {
-        flex-basis: 25%; /* Second and third divs */
+        flex-basis: 25%;
         max-width: 25%;
         width: 100%;
     }
-}
+} */

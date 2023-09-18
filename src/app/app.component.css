@@ -1,28 +1,29 @@
-/* *{
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-} */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: none;
+}
 
 .main-container {
     display: flex;
+  }
+  .main{
+    background-color: #cfc0b85b;
   }
   
   .side-nav {
     width: 250px;
     min-width: 230px;
     min-height: calc(100vh - 70px);
-    background-color: #113c60;
-    color: #fff;
-    box-shadow: 5px 5px 5px #939393;
   }
   
  
   
-  @media only screen and (max-width: 1400px) {
+  /* @media only screen and (max-width: 1400px) {
     .side-nav {
       width: 100px;
       min-width: 100px; 
     }
-  } 
+  }  */
   
