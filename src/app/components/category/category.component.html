@@ -83,18 +83,19 @@
 </div>-->
 
 <!--=========================================-->
-
-<div class="container-md">
+<div class="container main pt-5">
   <div class="row">
     <div class="col-md-4">
       <div class="card">
-        <div class="input-group">
+        <div class="">
           <div *ngIf="!editingCategory">
-            <h2 class="card-header">Create New Category <span class="text-primary"><i class="bi bi-plus-circle"></i></span></h2>
+            <h1 class="px-2 pt-2 text-center">Create New Category <span class=""><i class="bi bi-plus-circle"></i></span></h1>
+            <hr class="mx-5">
             <!-- Form content here -->
-            <form (submit)="createCategory()" class="form">
+            <form (submit)="createCategory()" class="form px-4 pb-4">
               <div class="form-group">
-                <label for="newCategoryName">Category Name:</label>
+                <label for="newCategoryName" class="mb-3">Category Name:</label>
+                
                 <input type="text"
                        id="newCategoryName"
                        [(ngModel)]="newCategory.categoryName"
@@ -104,7 +105,7 @@
               </div>
 
               <div class="form-group">
-                <label for="newCategoryddcCode">DDC Code:</label>
+                <label for="newCategoryddcCode" class="mb-2 mt-3">DDC Code:</label>
                 <input type="text"
                        id="newCategoryddcCode"
                        [(ngModel)]="newCategory.ddcCode"
@@ -113,17 +114,17 @@
                        required>
               </div>
 
-              <div class="form-check">
-                <label for="newCategoryIsActive">Is Active:</label>
+              <div class="form-check mt-3">
+                <label for="newCategoryIsActive" class="">Is Active</label>
                 <input type="checkbox"
                        id="newCategoryIsActive"
                        [(ngModel)]="newCategory.isActive"
                        name="newCategoryIsActive"
-                       class="form-check-input mt-2"
+                       class="form-check-input p-1"
                        required>
               </div>
 
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit" class="btn btn-primary mt-3">Create</button>
             </form>
           </div>
           <div *ngIf="editingCategory">
@@ -171,8 +172,13 @@
         </div>
       </div>
     </div>
+
+
+
     <div class="col-md-8">
-      <h2>Category List</h2>
+
+      <!-- <h1>Category List</h1> -->
+
       <!--<mat-form-field class="filter-input">
         <input matInput [(ngModel)]="filterValue" placeholder="Search your required in this box" (input)="applyFilter()">
       </mat-form-field>-->
@@ -190,7 +196,7 @@
       
         <mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="categoryId">
-            <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">ID</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">SL</mat-header-cell>
             <mat-cell *matCellDef="let category" class="celvalue">{{ category.categoryId }}</mat-cell>
           </ng-container>
 
