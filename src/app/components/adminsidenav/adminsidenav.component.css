@@ -1,3 +1,6 @@
+.nav-item{
+  color: #16171B;
+}
 .nav-items {
     padding-top: 40px;
     .nav-item
@@ -13,6 +16,7 @@
     &:hover
   
   {
+    color: #216870;
     background-color: rgb(205, 217, 228);
   }
   
