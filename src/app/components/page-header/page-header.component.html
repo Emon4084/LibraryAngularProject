@@ -26,14 +26,14 @@
               
               <!-- {{this.api.getTokenUserInfo()?.firstName | titlecase}} -->
           </span>
-          <button mat-icon-button [matMenuTriggerFor]="userMenu">
+          <button mat-icon-button [matMenuTriggerFor]="userMenu" *ngIf="(accountService.user$ | async) === null">  <!-- *ngIf="(accountService.user$ | async) === null" -->
               <mat-icon>account_circle</mat-icon>
           </button>
       </div>
 
-      <div class="login-register">
+      <div class="login-register" >
           <mat-menu #userMenu="matMenu">
-              <button mat-menu-item routerLink="/account/login">
+              <button mat-menu-item routerLink="/account/login">  
                   <mat-icon>login</mat-icon>
                   <span>Login</span>
               </button>
@@ -48,6 +48,13 @@
                   <span>Profile</span>
               </button>   
           </mat-menu>
+      </div>
+ 
+      <div *ngIf="(accountService.user$ | async)">
+        <a class="text-secondary " style="cursor:pointer; text-align: none;">
+            Hi <span class="h2 text-warning">  Welcome  <!--{{user.userName | titlecase}} --></span>
+        </a>
+        <a class="btn btn-danger" (click)="logout()">Logout</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
