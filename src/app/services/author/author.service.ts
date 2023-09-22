@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root'
 })
 export class AuthorService {
-  private url = `${environment.apiBaseUrl}/authors`; // Use the apiBaseUrl from environment
+  private url = `${environment.apiBaseUrl}/author`; // Use the apiBaseUrl from environment
 
   constructor(private http: HttpClient) { }
 

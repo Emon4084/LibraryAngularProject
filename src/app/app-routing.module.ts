@@ -8,6 +8,8 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
 import { SubscribeuserComponent } from './components/subscribeuser/subscribeuser.component';
 import { CategoryComponent } from './components/category/category.component';
 import { HomeComponent } from './components/home/home.component';
+import { AuthorComponent } from './components/author/author.component';
+import { BookComponent } from './components/book/book.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'Bookfloor', component: BookFloorComponent },
   { path: 'Subscriptions', component: SubscriptionPlanComponent },
   { path: 'Category', component: CategoryComponent },
+  { path: 'Author', component: AuthorComponent },
+  { path: 'Book', component: BookComponent },
   {path: 'account', loadChildren:() => import('./account/account.module').then(module => module.AccountModule)},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent, pathMatch: 'full'}

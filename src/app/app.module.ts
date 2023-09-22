@@ -44,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminsidenavComponent } from './components/adminsidenav/adminsidenav.component';
 import { CommonModule } from '@angular/common';
+import { BookListComponent } from './components/book/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { CommonModule } from '@angular/common';
     PageHeaderComponent,
     FooterComponent,
     HomeComponent,
-    AdminsidenavComponent
+    AdminsidenavComponent,
+    BookListComponent
   ],
   imports: [
     CommonModule, 
