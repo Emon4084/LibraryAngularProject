@@ -1,4 +1,6 @@
 import { Component,OnInit } from '@angular/core';
+import { AccountService } from 'src/app/account/account.service';
+import { User } from 'src/app/models/user/user';
 
 @Component({
   selector: 'page-header',
@@ -8,6 +10,8 @@ import { Component,OnInit } from '@angular/core';
 export class PageHeaderComponent implements OnInit{
     search : String ="";
   
+    constructor(public accountService: AccountService){}
+
     clearSearch() {
     this.search = '';
     //this.filteredItems = []; // Clear the filtered items when clearing the search
@@ -15,5 +19,8 @@ export class PageHeaderComponent implements OnInit{
 
     ngOnInit(): void {
       
+    }
+    logout(){
+      this.accountService.logout();
     }
 }

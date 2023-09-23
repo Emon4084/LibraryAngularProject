@@ -1,17 +1,17 @@
 <div class="d-flex justify-content-center">
     <div class="col-12 col-lg-5">
         <main class="form-signin">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
                 <div class="text-center mb-4">
                     <h3 class="mb-3 font-weight-normal">Login</h3>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" placeholder="UserName" class="form-control"/>
+                    <input formControlName="userName" type="text" placeholder="UserName" class="form-control"/>
                     <label for="userName">User Name</label>
                 </div>
                 
                 <div class="form-floating mb-3">
-                    <input type="password" placeholder="Password" class="form-control"/>
+                    <input formControlName="password" type="password" placeholder="Password" class="form-control"/>
                     <label for="password">Password</label>
                 </div>
 
@@ -23,7 +23,7 @@
 
             <div class="mt-4 text-center">
                 <a class="btn btn-link">
-                    <h6>Forgot username or password</h6>
+                    <h4>Forgot username or password</h4>
                 </a>
             </div>
         </main>
