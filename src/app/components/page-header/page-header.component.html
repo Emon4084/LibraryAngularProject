@@ -2,7 +2,7 @@
     <mat-toolbar-row>
       <span>
           <a mat-link href="/home" class="logo">
-              <img src="../../../assets/img/book-logo-png-12.png" alt="Logo" width="45" height="42">
+              <img src="../../../assets/img/Blue White Simple Aesthetic Book Cafe Logo (1).png" alt="Logo" class="round-logo" width="39" height="39">
           Library</a>
       </span>
       <span class="example-spacer"></span>
@@ -50,10 +50,10 @@
           </mat-menu>
       </div>
  
-      <div *ngIf="(accountService.user$ | async)">
-        <a class="text-secondary " style="cursor:pointer; text-align: none;">
-            Hi <span class="h2 text-warning">  Welcome  <!--{{user.userName | titlecase}} --></span>
-        </a>
+      <div *ngIf="(accountService.user$ | async) as user">
+        <a class="" style="cursor:pointer; text-align: none;">
+            <strong class="h4 text-danger ">  Welcome {{user.userName}}  </strong>
+           </a>
         <a class="btn btn-danger" (click)="logout()">Logout</a>
       </div>
     </mat-toolbar-row>

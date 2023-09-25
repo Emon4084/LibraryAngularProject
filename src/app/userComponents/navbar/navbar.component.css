@@ -1,0 +1,24 @@
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+  .dropdown-item:hover{
+    color: #fbf9f8;
+    background-color: #216870;
+  }
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    color: #216870;
+    pointer-events: none;
+  }
+.nav-bgc{
+  background-color: #f9faff;
+}
+  .navbar-nav{
+    margin:0 auto;
+    font-size: 17px;
+    font-weight: 450;
+    cursor: pointer;
+  }
+.txt{
+  color: --primary-text;
+}

@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/account/account.service';
 import { User } from 'src/app/models/user/user';
 
@@ -9,6 +10,7 @@ import { User } from 'src/app/models/user/user';
 })
 export class PageHeaderComponent implements OnInit{
     search : String ="";
+    currentUser$!: Observable<User |null>;
   
     constructor(public accountService: AccountService){}
 

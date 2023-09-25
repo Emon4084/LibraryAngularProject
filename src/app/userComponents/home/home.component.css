@@ -1,0 +1,45 @@
+
+.home-img img{
+    height: 350px;
+    width: auto;
+}
+.best-selling{
+    cursor: pointer;
+}
+.books{
+    margin-top: 15px;
+}
+.book-card{
+    padding: 12px;
+    display: flex;
+}
+.books .card{
+    width: 13em;
+    margin: 8px;
+}
+
+.card-bg{
+    background-color: #75a9af63;
+
+}
+.card-img{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px ;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+} 
+.card-title{
+    color: #000;
+    font-weight: 550;
+}
+.author{
+    color: #205a61;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: cursive;
+}

@@ -7,9 +7,14 @@ import { SubscriptionPlanComponent } from './components/subscriptionplan/subscri
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { SubscribeuserComponent } from './components/subscribeuser/subscribeuser.component';
 import { CategoryComponent } from './components/category/category.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './userComponents/home/home.component';
 import { AuthorComponent } from './components/author/author.component';
 import { BookComponent } from './components/book/book.component';
+import { AuthorUiComponent } from './userComponents/author-ui/author-ui.component';
+import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui.component';
+import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
+import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-selleres-ui.component';
+import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +26,14 @@ const routes: Routes = [
   { path: 'Author', component: AuthorComponent },
   { path: 'Book', component: BookComponent },
   {path: 'account', loadChildren:() => import('./account/account.module').then(module => module.AccountModule)},
+
+
+  {path:'authorui', component:AuthorUiComponent},
+  {path:'publisherui', component:PublisherUiComponent},
+  {path:'books', component:BooksUiComponent},
+  {path:'best-sellers', component:BestSelleresUiComponent},
+  {path:'editors-picks', component:EditorsUiComponent},
+
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent, pathMatch: 'full'}
 ];

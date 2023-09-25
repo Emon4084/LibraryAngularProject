@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AccountService } from 'src/app/account/account.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -7,5 +8,6 @@ import { AccountService } from 'src/app/account/account.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  faCoffee = faCoffee;
   
 }

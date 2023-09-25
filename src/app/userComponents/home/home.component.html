@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="home d-flex justify-content-center align-items-center">
+    <div class="home-header col-md">
+      <h4>Enjoy popular books when you subscribe</h4>
+      <p>Get instant to millions of ebooks and more for only 300 tk./monthly</p>
+      <a href="#" class="btn">Read free for 30 days</a>
+      <p>cancel anytime</p>
+    </div>
+    <div class="home-img col-md">
+      <img
+        src="../../../assets/img/books.e3a4e212.jpg"
+        class="rounded"
+        alt="..."
+      />
+    </div>
+  </div>
+
+  <div class="books">
+    <div class="best-selling">
+      <h1>Ebooks</h1>
+      <p>
+        Discover the rich selection of bestselling ebooks latest in politics,
+        fiction and more.
+      </p>
+      <hr />
+      <h3>Bestselling Books</h3>
+      <div class="book-card">
+        <div class="card" *ngFor="let book of books">
+          <div class="card-bg">
+            <div class="card-img">
+              <img
+                src="{{ book.coverFileName }}"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Ebook</p>
+            <h5 class="card-title">{{ book.title }}</h5>
+            <h6 class="card-text author">William Kent Krueger</h6>
+            <span>3/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+
+<div class="container-fluid nav-bgc">
+  <nav class="navbar navbar-expand-md">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav me-auto ">
+      <li class="nav-item">
+        <a class="nav-link txt" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          Home
+        </a>
+      </li>
+    <li class="collapse navbar-collapse" routerLink="authorui">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle txt" id="dropdownMenuButton">Author </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item txt" href="#">Humayun Ahmed </a></li>
+            <li><a class="dropdown-item txt" href="#">Kazi Nazrul</a></li>
+            <li><a class="dropdown-item txt" href="#">Yusuf</a></li>
+          
+        </ul>
+      </div>
+    </li>
+
+  <li class="collapse navbar-collapse" routerLink="publisherui">
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle txt" id="dropdownMenuButton">Publisher </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item txt" href="#">Seba prokashoni </a></li>
+          <li><a class="dropdown-item txt" href="#">Bangla Academi</a></li>
+          <li><a class="dropdown-item txt" href="#">Saifur's</a></li>
+          <li><a class="dropdown-item txt" href="#">Prothoma</a></li>
+      </ul>
+    </div>
+  </li>
+  
+  <li class="collapse navbar-collapse" routerLink="books">
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle txt" id="dropdownMenuButton">Books </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item txt" href="#">Home and Gardening </a></li>
+          <li><a class="dropdown-item txt" href="#">Ture Crime</a></li>
+          <li><a class="dropdown-item txt" href="#">Business</a></li>
+          <li><a class="dropdown-item txt" href="#">Religion</a></li>
+      </ul>
+    </div>
+  </li>
+
+        <li class="nav-item"><a class="nav-link txt" routerLink="best-sellers" routerLinkActive="active">Best Sellers </a></li>
+        <li class="nav-item"><a class="nav-link txt" routerLink="editors-picks" routerLinkActive="active">Editor's Picks</a></li>
+
+      </ul>
+
+      <!-- <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="btn btn-secondary mx-2" routerLink="/account/register" routerLinkActive="active">
+            Create Account
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-secondary" routerLink="/account/login" routerLinkActive="active">
+            login
+          </a>
+        </li>
+      </ul> -->
+      
+  </nav>
+</div> 

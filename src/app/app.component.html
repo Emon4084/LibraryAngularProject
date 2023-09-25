@@ -23,30 +23,26 @@
 <!-- Hide the navbar for non-registered users -->
 <!-- Hide the adminsidenav for non-admin users -->
 
-<div class="container-fluid">
+<div class="container">
   <div class="header">
     <page-header></page-header>
   </div>
 
   <div class="nav-var">
-    <!-- <app-navbar></app-navbar> -->
+    <app-navbar></app-navbar>
   </div>
   
-  <div class="main-container ">
-    <div class="sid-nev col-md-2">
+  <div class="main-container" >
+    <!-- <div class="sid-nev col-md-2">
       <app-adminsidenav></app-adminsidenav>
-    </div>
+    </div> -->
 
-    <div class="main col-md-10 pb-3">
+    <div class="main pb-3">
       <router-outlet></router-outlet>
     </div>
   </div>
-
-    
-  
-
-  <div class="footer">
-    <app-footer></app-footer>
+  <div class="container-fluid footer">
+    <!-- <app-footer></app-footer> -->
   </div>
 </div>
 

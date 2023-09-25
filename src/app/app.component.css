@@ -1,16 +1,18 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-align: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: none;
 }
-
-.main-container {
+.container{
+  margin: 0 auto;
+}
+/* .main-container {
     display: flex;
-  }
-  .main{
+  } */
+  /* .main{
     background-color: #cfc0b85b;
-  }
+  } */
   
   .side-nav {
     width: 250px;
@@ -19,11 +21,3 @@
   }
   
  
-  
-  /* @media only screen and (max-width: 1400px) {
-    .side-nav {
-      width: 100px;
-      min-width: 100px; 
-    }
-  }  */
-  
