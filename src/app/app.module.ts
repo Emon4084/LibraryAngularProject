@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthGuard } from './account/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { UserpreferenceComponent } from './components/userpreference/userpreference.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -45,6 +46,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminsidenavComponent } from './components/adminsidenav/adminsidenav.component';
 import { CommonModule } from '@angular/common';
 import { BookListComponent } from './components/book/book-list/book-list.component';
+import { AuthInterceptor } from './account/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,15 @@ import { BookListComponent } from './components/book/book-list/book-list.compone
 
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+      
+    // },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,30 @@
+
+<div class="container-fluid" >
+  <div class="header">
+    <page-header></page-header>
+  </div>
+  <!-- *ngIf="!isUserAdmin" -->
+  <div class="nav-var" *ngIf="!isUserAdmin">
+    <app-navbar></app-navbar>
+  </div>
+  <!-- *ngIf="isUserAdmin" -->
+  <div class="main-container " >
+    <div class="sid-nev col-md-2" *ngIf="isUserAdmin">
+      <app-adminsidenav ></app-adminsidenav>
+    </div>
+
+    <div class="main col-md-10 pb-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+
+
+
 <!-- <div class="container-fluid">
   <div class="header">
     <page-header></page-header>
@@ -22,31 +49,3 @@
 </div> -->
 <!-- Hide the navbar for non-registered users -->
 <!-- Hide the adminsidenav for non-admin users -->
-
-<div class="container-fluid">
-  <div class="header">
-    <page-header></page-header>
-  </div>
-
-  <div class="nav-var">
-    <!-- <app-navbar></app-navbar> -->
-  </div>
-  
-  <div class="main-container ">
-    <div class="sid-nev col-md-2">
-      <app-adminsidenav></app-adminsidenav>
-    </div>
-
-    <div class="main col-md-10 pb-3">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-    
-  
-
-  <div class="footer">
-    <app-footer></app-footer>
-  </div>
-</div>
-
