@@ -15,6 +15,7 @@ import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui
 import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
 import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-selleres-ui.component';
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
+import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'Bookfloor', component: BookFloorComponent },
   { path: 'Subscriptions', component: SubscriptionPlanComponent },
   { path: 'Category', component: CategoryComponent },
+  { path: 'Subcategory', component: SubcategoryComponent },
   { path: 'Author', component: AuthorComponent },
   { path: 'Book', component: BookComponent },
   {path: 'account', loadChildren:() => import('./account/account.module').then(module => module.AccountModule)},

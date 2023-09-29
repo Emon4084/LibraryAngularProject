@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book/book.model';
 import { HomeService } from './home.service';
-import { BookService } from 'src/app/services/book/book.service';
 
 @Component({
   selector: 'app-home',

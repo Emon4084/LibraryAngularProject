@@ -16,8 +16,8 @@
       <div class="dropdown">
         <a class="nav-link dropdown-toggle txt" id="dropdownMenuButton">Author </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item txt" href="#">Humayun Ahmed </a></li>
-            <li><a class="dropdown-item txt" href="#">Kazi Nazrul</a></li>
+            <li><a class="dropdown-item txt" *ngFor="let author of author">{{author.firstName}} {{author.lastName}} </a></li>
+            <li><a class="dropdown-item txt" href="#">Harry Potter</a></li>
             <li><a class="dropdown-item txt" href="#">Yusuf</a></li>
           
         </ul>
