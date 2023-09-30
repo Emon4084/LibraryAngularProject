@@ -1,4 +1,5 @@
 
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -170,6 +171,84 @@
               
                   
               <div class="dropdown-divider"></div>
+
+<mat-toolbar class="head-1">
+    <mat-toolbar-row>
+      <span>
+          <a mat-link href="/home" class="logo">
+              <img src="../../../assets/img/Blue White Simple Aesthetic Book Cafe Logo (1).png" alt="Logo" class="round-logo" width="39" height="39">
+          Library</a>
+      </span>
+      <span class="example-spacer"></span>
+      
+
+      <form class="search-form">
+          <input type="text" class="search-input" placeholder="Search...">
+          <button type="submit" class="search-button">
+              <mat-icon class="search-icon" aria-hidden="false" aria-label="Example heart icon">search-button</mat-icon>
+          </button>
+      </form>
+
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button class="fab-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+      <div class="user">
+          <span>
+              
+              <!-- {{this.api.getTokenUserInfo()?.firstName | titlecase}} -->
+          </span>
+          <button mat-icon-button [matMenuTriggerFor]="userMenu" *ngIf="(accountService.user$ | async) === null">  <!-- *ngIf="(accountService.user$ | async) === null" -->
+              <mat-icon>account_circle</mat-icon>
+          </button>
+      </div>
+
+      <div class="login-register" >
+          <mat-menu #userMenu="matMenu">
+              <button mat-menu-item routerLink="/account/login">  
+                  <mat-icon>login</mat-icon>
+                  <span>Login</span>
+              </button>
+              
+              <button mat-menu-item routerLink="/account/register">
+              <!-- (click)="logOut()" -->
+                  <mat-icon>Registration</mat-icon>
+                  <span>Registration</span>
+              </button>
+              <button mat-menu-item routerLink="/users/profile">
+                  <mat-icon>account_box</mat-icon>
+                  <span>Profile</span>
+              </button>   
+          </mat-menu>
+      </div>
+ 
+      <div *ngIf="(accountService.user$ | async) as user">
+        <a class="" style="cursor:pointer; text-align: none;">
+            <strong class="h4 text-danger ">  Welcome {{user.userName}}  </strong>
+           </a>
+        <a class="btn btn-danger" (click)="logout()">Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- <mat-toolbar class="head-2">
+      <mat-toolbar-row>
+          
+         
+          <button mat-button [matMenuTriggerFor]="menu" >Book</button>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menu" >Publisher</button>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+          </mat-menu>
+
   
               <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
                 <i class="fa fa-sign-out mr-3"></i> Log out

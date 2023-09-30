@@ -17,6 +17,9 @@ import { BookListComponent } from './book-list/book-list.component';
 })
 export class BookComponent implements OnInit {
   @ViewChild('fileInput') fileInput: any;
+  @ViewChild('eBInput') eBInput: any;
+  @ViewChild('agCInput') agCInput: any;
+
   @ViewChild('addBookButton') addBookButton: any;
 
   bookForm: FormGroup;
@@ -122,14 +125,14 @@ export class BookComponent implements OnInit {
       formData.append('cover', coverInput.files[0]);
     }
 
-    const eBookInput = this.bookForm.get('eBook')?.value;
+    const eBookInput =  this.eBInput.nativeElement;
     if (eBookInput.files && eBookInput.files.length>0) {
-      formData.append('eBook', eBookInput.files[1]);
+      formData.append('eBook', eBookInput.files[0]);
     }
 
-    const agreementBookCopyInput = this.bookForm.get('agreementBookCopy')?.value;
+    const agreementBookCopyInput =  this.agCInput.nativeElement;
     if (agreementBookCopyInput.files &&  agreementBookCopyInput.files.length>0) {
-      formData.append('agreementBookCopy', agreementBookCopyInput.files[2]);
+      formData.append('agreementBookCopy', agreementBookCopyInput.files[0]);
     }
 
     this.bookService.postBook(formData).subscribe((res) => {
