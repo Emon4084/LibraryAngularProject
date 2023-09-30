@@ -1,3 +1,177 @@
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <!-- Logo on the left -->
+            <a class="navbar-brand" routerLink="">
+                <img src="../../../assets/img/book-logo-png-12.png" alt="Logo" width="45" height="42">
+                Library
+            </a>
+           
+            <!-- Middle content (Search bar with fixed width) -->
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="form-inline mx-auto my-2 my-lg-0 d-flex">
+                    <div class="input-group">
+                        <input class="form-control search-input" type="text" placeholder="Search...">
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success search-button" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+                
+                <!-- right strat -->
+                
+                
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <button class="btn btn-link favorite-icon" aria-label="Favorite" id="favorite-button">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <!-- Modal to display favorite books -->
+                <div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="favoriteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="favoriteModalLabel">Favorite Books</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Your favorite book list content goes here -->
+                                <!-- Example: -->
+                                <ul>
+                                    <li>Book 1</li>
+                                    <li>Book 2</li>
+                                    <li>Book 3</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+
+                <!-- User authentication -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-link account-icon" type="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i>
+                                    <ng-container *ngIf="currentUser$ | async as user">
+                                        <span class="user-name">{{ user.userName }}</span>
+                                    </ng-container>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown" id="accountMenu">
+                                    <ng-container *ngIf="(currentUser$ | async) === null">
+                                        <ul>
+                                            
+                                            <li>
+                                                <a routerLink="/account/login" class="dropdown-item">Login</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a routerLink="/account/register" class="dropdown-item">Sign up</a>
+                                            </li>
+
+                                        </ul>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="currentUser$ | async as user">
+                                        <a class="dropdown-item" routerLink="/" id="profileLink">Profile</a>
+                                        <a (click)="logout()" class="dropdown-item">Log out</a>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <!-- right end -->
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+            <!-- Toggle button for small screens -->
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+
+
+
+            <!-- start -->
+            <!-- <ng-container *ngIf="(currentUser$ | async) === null">
+                <a routerLink="/account/login" class="btn btn-outline-secondary me-2">Login</a>
+                <a routerLink="/account/register" class="btn btn-outline-secondary me-3">Sign up</a>    
+            </ng-container>
+            <ng-container *ngIf="currentUser$ | async as user">
+                <div class="dropdown">
+                    <ul>
+                        
+                    </ul>
+                    <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
+                        <strong>
+                            Welcome {{user.userName}}
+                        </strong>           
+                    </a>   
+                </div>
+                <div class="dropdown ml-3 mr-5" dropdown>
+                        
+                    <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu="">
+                        
+                            
+                       
+            
+                        <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+                            <i class="fa fa-sign-out mr-3"></i> Log out
+                        </a>
+                    
+                    </div>
+                </div>
+            </ng-container> -->
+            <!-- end -->
+
+
+<!-- Login part copy -->
+<!-- <ng-container *ngIf="(currentUser$ | async) === null">
+    <a routerLink="/account/login" class="btn btn-outline-secondary me-2">Login</a>
+    <a routerLink="/account/register" class="btn btn-outline-secondary me-3">Sign up</a>    
+</ng-container>
+<ng-container *ngIf="currentUser$ | async as user">
+    <div class="dropdown ml-3 mr-5" dropdown>
+        <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
+            <strong>
+                Wellcome {{user.userName}}
+            </strong>           
+        </a>         
+        <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu="">
+              
+                  
+              <div class="dropdown-divider"></div>
+
 <mat-toolbar class="head-1">
     <mat-toolbar-row>
       <span>
@@ -74,15 +248,59 @@
               <button mat-menu-item>Item 1</button>
               <button mat-menu-item>Item 2</button>
           </mat-menu>
+
   
-             
-        </mat-toolbar-row>
-  </mat-toolbar> -->
+              <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+                <i class="fa fa-sign-out mr-3"></i> Log out
+              </a>
+        
+        </div>
+    </div>
+</ng-container> -->
 
 
-  <!-- <button mat-icon-button class="example-icon" aria-hidden="true" aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
-          </button> -->
-          <!-- <a mat-raised-button routerLink="/home">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-          </a> -->
+
+
+
+
+
+                <!-- <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-link account-icon" type="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown" id="accountMenu">
+                                    <ng-container *ngIf="(currentUser$ | async) === null">
+                                        <a routerLink="/account/login" class="btn  me-3">Login</a>
+                                        <a routerLink="/account/register" class="btn me-3">Sign up</a>    
+                                    </ng-container>
+                                    
+                                    <ng-container *ngIf="currentUser$ | async as user">
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+                                           
+                                            <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
+                                                <strong>
+                                                    Welcome {{user.userName}}
+                                                </strong>           
+                                            </a>   
+                                        </div>
+                                        <div class="dropdown ml-3 mr-5" dropdown>
+                                                
+                                            <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu="">
+                           
+                                                <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+                                                    <i class="fa fa-sign-out mr-3"></i> Log out
+                                                </a>
+                                            
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <a class="dropdown-item" href="/users/profile" id="profileLink">Profile</a>
+                                    <a class="dropdown-item" href="#" id="logoutLink">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> -->

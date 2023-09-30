@@ -1,18 +1,36 @@
-.example-spacer {
-  flex: 1 1 auto;
+
+/* Custom CSS for Search Bar ========================= */
+
+.form-inline .input-group {
+  width: 100%;
+  max-width: 600px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the search bar horizontally */
+  position: relative;
 }
 
-.mdc-button{
-  margin: 5px !important;
-} 
-
-/* ====================Header========================= */
-.head-1{
-  background-color: #FBF9F8; /* Set your desired background color */
-  color: #00293F; /* Set your desired text color */
-  align-items: center;
-  height: 50px;
+.search-input {
+  border-radius: 25px; /* Add rounded corners */
+  width: auto;
+  padding: 10px 20px; /* Add some padding for better spacing */
+  border: 1px solid #ccc; /* Add a border */
+  font-size: 16px; /* Adjust the font size */
+  border-top-right-radius: 0; /* Remove border radius for the top-right corner */
+  border-bottom-right-radius: 0;
+  
 }
+
+.search-button {
+  position: absolute;
+  border-radius: 25px; /* Add rounded corners */
+  border-color: black;
+  margin-left: 0px; /* Adjust the margin to align the button with the input */
+  background-color: #798579; /* Change button background color */
+  border: none; /* Remove button border */
+  color: #fff; /* Set button text color to white */
+  padding: 10px 15px; /* Add padding for better spacing */
+  transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  border-top-left-radius: 0; /* Remove border radius for the top-right corner */
+  border-bottom-left-radius: 0;
 
 .logo{
   color: rgb(0,41,63);
@@ -29,50 +47,54 @@
 mat-icon{
   color: rgb(30, 123, 133);
   
+
 }
 
-.search-form {
+.search-button:hover {
+  background-color: #274029; /* Change button background color on hover */
+}
+
+
+/* End=========================================== */
+
+
+.favorite-icon {
+  border-radius: 25px; /* Add rounded corners */
+  background-color: #798579; /* Change button background color */
+  border: solid; /* Remove button border */
+  color: #fff; /* Set button text color to white */
+  transition: background-color 0.3s ease; /* Add a smooth hover effect */
+}
+
+/* Custom CSS for User Authentication Dropdown */
+.account-icon {
+  font-size: 24px;
+  color: #333;
+  padding: 0;
+  background-color: transparent;
+  border: none;
   display: flex;
   align-items: center;
-  margin-left: 100px;
- 
 }
 
-.search-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 25px; /* Adjust the radius to control the roundness */
-  outline: none;
-  height: 40px;
-  width: 450px;
-  font-size: small;
-  z-index: 1;
-}
-.search-input:hover {
-  border-color: rgb(30, 123, 133);
-  border-width: 2px;
+.user-name {
+  margin-left: 10px; /* Adjust the spacing between user icon and name */
+  color: #000; /* Set font color to black */
 }
 
-.search-button {
-  background: none;
-  color: #e9d9d9;
+.dropdown-menu {
   border: none;
-  margin-left: -50px;
-  margin-top: 3px;
-  border-radius: 30px;
-  cursor: pointer;
-  height: 30px; 
-  z-index: 1;
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
-/* Optional: Add hover effect for the button */
-.search-button:hover {
-  background-color: #ebeff3;
-  border-radius: 25px;
-  margin-bottom: 2px;
+.dropdown-item {
+  color: #000; /* Set font color to black */
 }
 
-/* ====================Nev bar========================= */
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Change background color on hover */
+  color: #007BFF; /* Change text color on hover */
+}
 
-
+/* Custom CSS for Account Circle Button and Dropdown */

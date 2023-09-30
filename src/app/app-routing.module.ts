@@ -10,6 +10,12 @@ import { CategoryComponent } from './components/category/category.component';
 import { HomeComponent } from './userComponents/home/home.component';
 import { AuthorComponent } from './components/author/author.component';
 import { BookComponent } from './components/book/book.component';
+
+import { AuthGuard } from './account/auth.guard';
+import { AdminsidenavComponent } from './components/adminsidenav/adminsidenav.component';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
+
 import { AuthorUiComponent } from './userComponents/author-ui/author-ui.component';
 import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui.component';
 import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
@@ -17,10 +23,14 @@ import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  
-  { path:  'Publisher', component: PublisherComponent },
+  { path: 'admin/navbar', component: AdminsidenavComponent, canActivate: [AuthGuard] },
+  //{ path: '**', redirectTo: '/'},
+  //{path: 'login', component:LoginComponent},
+  //{path: 'register', component:RegisterComponent},
+  { path:  'Publisher', component: PublisherComponent, canActivate: [AuthGuard] },
   { path: 'Bookfloor', component: BookFloorComponent },
   { path: 'Subscriptions', component: SubscriptionPlanComponent },
   { path: 'Category', component: CategoryComponent },
