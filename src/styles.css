@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --primary-text:rgb(48,49,64);
+}
+
+
+
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #fff;
+}
+
+.txt:hover{
+    color: #205a61;
+}
+
+.btn{
+    color: #fff;
+    background-color: #1e7b85;
+    padding: 10px;
+}
+.btn:hover{
+    background-color: #216870;
+    color: #fbf9f8;
+}
+
+label{
+    color: rgb(22, 23, 27);
+}

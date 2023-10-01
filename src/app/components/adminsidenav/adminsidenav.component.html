@@ -1,0 +1,16 @@
+<div class="nav-items">
+  <div
+    class="nav-item"
+    *ngFor="let item of navItems"
+    [ngClass]="{ active: item.isActive }"
+  >
+    <a
+      class="nav-link"
+      [routerLink]="item.routerLink"
+      (click)="toggleActive(item)"
+    >
+      <i [class]="item.iconClass"></i>
+      <span class="mx-2">{{ item.label }}</span>
+    </a>
+  </div>
+</div>

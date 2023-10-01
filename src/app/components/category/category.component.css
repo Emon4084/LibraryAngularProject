@@ -1,0 +1,81 @@
+
+/* 
+label{
+  padding: 1px;
+}
+
+.container-md{
+  background-color:aliceblue;
+  color:black;
+}
+
+.col-md-8 {
+background-color: aliceblue;
+color: black;
+}
+
+mat-table {
+border-color:#000000;
+background-color: white;
+color: black;
+}
+
+.table::target-text {
+
+color: black;
+}
+
+.table-header {
+background-color: beige;
+color: black;
+font-size: 16px;
+border-bottom-color: black;
+}
+
+.filter {
+width:100%;
+border-color: blue; color: black;
+}
+
+.filter-label{
+  background-color:black;
+  color:white;
+}
+
+.filter::placeholder {
+background-color: white;
+color: black !important;
+}
+
+
+.celvalue{
+ color: black;
+ border-bottom-color:black;
+ 
+}
+
+.card {
+margin-top: 68px;
+height: 280px;
+padding: 7px;
+height: 310px;
+}
+
+
+.card-header {
+background-color: gainsboro;
+}
+
+.form-group {
+padding:2px;
+}
+
+.filtering{
+  background-color: white;
+}
+
+
+
+.mat-form-field-label{
+  color: #000000;
+}  */

@@ -1,0 +1,57 @@
+<div class="container">
+  <h1 class="">Subcategories</h1>
+  <div class="d-flex">
+     <div class="forms p-4">
+        <!-- Subcategory form -->
+        <form [formGroup]="subCategoryForm" (ngSubmit)="submitForm()">
+           <div class="form-group pb-3">
+              <label for="ddcCode">DDC Code</label>
+              <input type="text" id="ddcCode" formControlName="ddcCode" class="form-control">
+           </div>
+           <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" formControlName="name" class="form-control">
+           </div>
+           <div class="form-group py-3">
+              <label for="isActive" class="mr-4">Is Active</label>
+              <input type="checkbox" id="isActive" formControlName="isActive" class="form-check-input ">
+           </div>
+           <div class="form-group">
+              <label for="categoryId">Category</label>
+              <select id="categoryId" formControlName="categoryId" class="form-control">
+                 <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
+              </select>
+           </div>
+           <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+     </div>
+     <!-- List of subcategories -->
+     <div class="table table-responsive">
+        <table class="table table-striped table-hover">
+           <thead class="thead">
+              <tr>
+                 <!-- <th type="hidden-column">Subcategory ID</th> -->
+                 <th>DDC Code</th>
+                 <th>Name</th>
+                 <th>Is Active</th>
+                 <th>Category</th>
+                 <th class="text-danger">Actions</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr *ngFor="let subcategory of subcategoryToDisplay">
+                 <td class=" text-center hidden-column">{{ subcategory.subCategoryId }}</td>
+                 <td class=" text-center">{{ subcategory.ddcCode }}</td>
+                 <td class=" text-center">{{ subcategory.name }}</td>
+                 <td class=" text-center">{{ subcategory.isActive ? 'Yes' : 'No' }}</td>
+                 <td class="text-center">{{ getCategoryName(subcategory.categoryId) }}</td>
+                 <td>
+                    <button class="btn btn-sm btn-outline-primary" (click)="editSubcategory(subcategory)">Edit</button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteSubcategory(subcategory.subCategoryId)">Delete</button>
+                 </td>
+              </tr>
+           </tbody>
+        </table>
+     </div>
+  </div>
+</div>

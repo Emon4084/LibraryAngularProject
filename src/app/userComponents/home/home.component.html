@@ -1,0 +1,199 @@
+<div class="container">
+  <div class="home d-flex justify-content-center align-items-center">
+    <div class="home-header col-md">
+      <h4>Enjoy popular books when you subscribe</h4>
+      <p>Get instant to millions of books and more</p>
+      <a href="#" class="btn">Subscribe to Read Premium Books</a>
+      <p>cancel anytime</p>
+    </div>
+    <div class="home-img col-md">
+      <img
+        src="../../../assets/img/books.e3a4e212.jpg"
+        class="rounded"
+        alt="..." draggable="false"
+      />
+    </div>
+  </div>
+
+  <div class="books">
+    <div class="best-selling">
+      <h1>Books</h1>
+      <p>
+        Discover the rich selection of bestselling ebooks latest in politics,
+        fiction and more.
+      </p>
+      <hr />
+      <h3>Bestselling Books</h3>
+      <div class="book-card">
+        <div class="card" *ngFor="let book of books">
+          <div class="card-bg">
+            <div class="card-img img">
+              <img
+                src="{{ book.coverFileName }}"
+                class="card-img-top"
+                alt="..."draggable="false"
+              /> 
+            </div>
+          </div>
+          <div class="card-body card-text author">
+            <p>Book</p>
+            <h5 class="card-title">{{ book.title }}</h5>
+            <div>
+
+
+
+
+
+              <ng-container *ngFor="let bookAuthor of book.bookAuthor; let isLast = last">
+                  {{ getAuthorName(bookAuthor.authorId) }}
+                  <ng-container *ngIf="!isLast">, </ng-container>
+              </ng-container>
+            </div>
+            <span>3/5</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-bg">
+            <div class="card-img img">
+              <img
+                src="../../../assets/img/bookCover/Untitled design (1).jpg"
+                class="card-img-top"
+                alt="..." draggable="false"
+              />
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Book</p>
+            <h5 class="card-title">Power of Sub concious mind</h5>
+            <h6 class="card-text author">John Harry</h6>
+            <span>3/5</span>
+          </div>
+        </div>
+<!-- ----------------- -->
+        <div class="card">
+          <div class="card-bg">
+            <div class="card-img img">
+              <img
+                src="../../../assets/img/bookCover/Untitled design.jpg"
+                class="card-img-top"
+                alt="..." draggable="false"
+              />
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Book</p>
+            <h5 class="card-title">Home Sweet</h5>
+            <h6 class="card-text author">William Kent Krueger</h6>
+            <span>3/5</span>
+          </div>
+        </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- ----------- Script ------------- -->
+<!-- Your HTML code here -->
+
+<!-- ----------- Script ------------- -->
+<!-- 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const wrapper = document.querySelector(".wrapper");
+  const carousel = document.querySelector(".carousel");
+  const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+  const arrowBtns = document.querySelectorAll(".wrapper i");
+  const carouselChildrens = [...carousel.children];
+
+  let isDragging = false,
+    isAutoPlay = true,
+    startX,
+    startScrollLeft,
+    timeoutId;
+
+  // Get the number of cards that can fit in the carousel at once
+  let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+  // Insert copies of the last few cards to the beginning of the carousel for infinite scrolling
+  carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+  });
+
+  // Insert copies of the first few cards to the end of the carousel for infinite scrolling
+  carouselChildrens.slice(0, cardPerView).forEach(card => {
+    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+  });
+
+  // Scroll the carousel at the appropriate position to hide the first few duplicate cards on Firefox
+  carousel.classList.add("no-transition");
+  carousel.scrollLeft = carousel.offsetWidth;
+  carousel.classList.remove("no-transition");
+
+  // Add event listeners for the arrow buttons to scroll the carousel left and right
+  arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+    });
+  });
+
+  const dragStart = (e) => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    // Records the initial cursor and scroll position of the carousel
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+  };
+
+  const dragging = (e) => {
+    if (!isDragging) return; // if isDragging is false, return from here
+    // Updates the scroll position of the carousel based on the cursor movement
+    carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+  };
+
+  const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+  };
+
+  const infiniteScroll = () => {
+    // If the carousel is at the beginning, scroll to the end
+    if (carousel.scrollLeft === 0) {
+      carousel.classList.add("no-transition");
+      carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
+      carousel.classList.remove("no-transition");
+    }
+    // If the carousel is at the end, scroll to the beginning
+    else if (
+      Math.ceil(carousel.scrollLeft) ===
+      carousel.scrollWidth - carousel.offsetWidth
+    ) {
+      carousel.classList.add("no-transition");
+      carousel.scrollLeft = carousel.offsetWidth;
+      carousel.classList.remove("no-transition");
+    }
+
+    // Clear the existing timeout and start autoplay if the mouse is not hovering over the carousel
+    clearTimeout(timeoutId);
+    if (!wrapper.matches(":hover")) autoPlay();
+  };
+
+  const autoPlay = () => {
+    if (window.innerWidth < 800 || !isAutoPlay) return; // Return if the window is smaller than 800 or isAutoPlay is false
+    // Autoplay the carousel every 2500 ms
+    timeoutId = setTimeout(() => (carousel.scrollLeft += firstCardWidth), 2500);
+  };
+  autoPlay();
+
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("mousemove", dragging);
+  document.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("scroll", infiniteScroll);
+  wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+  wrapper.addEventListener("mouseleave", autoPlay);
+});
+</script> -->

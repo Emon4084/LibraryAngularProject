@@ -1,0 +1,160 @@
+<!-- TOOLBAR TO ADD AND SEARCH EMPLOYEES -->
+<div class="container">
+  <main class="shadow" style="box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+    <div class="toolbar">
+      <div class="add-book">
+        <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" #addBookButton>Add Book</button>
+      </div>
+    </div>
+
+    <!-- AREA TO DISPLAY ALL THE Books -->
+    <div class="books">
+      <div class="row mt-5" *ngIf="books.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic">There are No Books Added!</span>
+        </div>
+      </div>
+
+      <div class="row mt-4" *ngFor="let book of booksToDisplay; let ei = index;">
+        <div class="col">
+          <app-book-list [book]="book"></app-book-list>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Book Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="bookForm">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Title" formControlName="title">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="ISBN" formControlName="isbn">
+            </div>
+          </div>
+
+          <div class="row mt-3">
+           
+            <div class="col">
+              <label for="publisherId" class="form-label">Publisher</label>
+              <select id="publisherId" formControlName="publisherId" class="form-control">
+                <option *ngFor="let publisher of publishers" [value]="publisher.publisherId">{{ publisher.publisherName }}</option>
+              </select>
+            </div>
+            
+            <div class="col">
+              <label for="publishedYear" class="form-label">Published Year</label>
+              <input type="date" class="form-control" id="publishedYear" formControlName="publishedYear">
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Edition" formControlName="edition">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Total Copies" formControlName="totalCopies">
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Language" formControlName="language">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Description" formControlName="description">
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Book Price" formControlName="bookPrice">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="DDC Code" formControlName="ddcCode">
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive">
+                <label class="form-check-label" for="isActive">Active?</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="isDigital" formControlName="isDigital">
+                <label class="form-check-label" for="isDigital">Ebook Available?</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="publisherAgreement" formControlName="publisherAgreement">
+                <label class="form-check-label" for="publisherAgreement">Publisher's Agreement</label>
+              </div>
+            </div>
+         
+            <div class="col">
+              <label for="categoryId" class="form-label">Category</label>
+              <select id="categoryId" formControlName="categoryId" class="form-control">
+                <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="authorIds" class="form-label">Authors</label>
+              <select id="authorIds" class="form-control" formControlName="authorIds" multiple>
+                <option *ngFor="let author of authors" [value]="author.authorId">{{ author.firstName }}{{ author.lastName }}</option>
+              </select>
+            </div>
+          </div>
+          
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="cover" class="form-label">Cover </label>
+              <input type="file" class="form-control" id="cover" #fileInput>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="eBook" class="form-label">E-Book </label>
+              <input type="file" class="form-control" id="eBook" #eBInput>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="agreementBookCopy" class="form-label">Copyright File</label>
+              <input type="file" class="form-control" id="agreementBookCopy" #agCInput>
+            </div>
+          </div>
+         
+        </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addBook()">Insert</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
