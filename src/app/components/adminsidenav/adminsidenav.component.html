@@ -1,4 +1,10 @@
 <div class="nav-items">
+
+  <div class="nav-item" *ngFor="let item of navItems" [ngClass]="{'active': item.isActive}">
+    <a class="nav-link" [routerLink]="item.routerLink" (click)="toggleActive(item)">
+      <i [class]="item.iconClass"></i>
+      <span class="mx-2">{{ item.label }}</span>
+
     <div class="nav-item">
         <a class="nav-link" routerLink="Dashboard" routerLinkActive="active">
             <!-- <fa-icon [icon]="faDashboard"></fa-icon> -->
@@ -14,6 +20,13 @@
           </div>
     </a>
 
+    <a class="nav-link" routerLink="Subcategory" routerLinkActive="active">
+      <div class="nav-item">
+          <!-- <fa-icon [icon]="faLocation"></fa-icon> -->
+          <span>Subcategory</span>
+        </div>
+  </a>
+
     <a class="nav-link" routerLink="Author" routerLinkActive="active">
         <div class="nav-item">
             <!-- <fa-icon [icon]="faLocation"></fa-icon> -->
@@ -26,49 +39,8 @@
             <!-- <fa-icon [icon]="faLocation"></fa-icon> -->
             <span>Book</span>
           </div>
-    </a>
-    
-    
-    <a class="nav-link" routerLink="Publisher" routerLinkActive="active">
-        <div class="nav-item">
-            <!-- <fa-icon [icon]="faBox"></fa-icon> -->
-            <span>Publisher</span> 
-          </div>
-    </a>
 
-    <a class="nav-link" routerLink="Bookfloor" routerLinkActive="active">
-        <div class="nav-item">
-            <!-- <fa-icon [icon]="faShop"></fa-icon> -->
-            <span>BookFloor</span>
-          </div>
     </a>
-    
-    <a class="nav-link" routerLink="Subscriptions" routerLinkActive="active">
-        <div class="nav-item">
-            <!-- <fa-icon [icon]="faMoneyBill"></fa-icon> -->
-            <span>Subscriptions</span>  
-      </div>
-    </a>
-    
-  
-    <div class="nav-item">
-      <!-- <fa-icon [icon]="faChartBar"></fa-icon> -->
-      <span>Statistics</span>
-  
-    </div>
-  
-    <div class="nav-item">
-      <!-- <fa-icon [icon]="faContactBook"></fa-icon> -->
-      <span>Contacts</span>
-  
-    </div>
-  
-    <div class="nav-item">
-      <!-- <fa-icon [icon]="faHand"></fa-icon> -->
-      <a href=""><span>Help</span></a>
-    </div>
-  
-
   </div>
+</div>
 
-       

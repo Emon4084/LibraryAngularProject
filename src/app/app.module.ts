@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthGuard } from './account/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { UserpreferenceComponent } from './components/userpreference/userpreference.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -33,18 +34,27 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { SubscriptionPlanComponent } from './components/subscriptionplan/subscriptionplan.component';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './userComponents/navbar/navbar.component';
 import { SubscribeuserComponent } from './components/subscribeuser/subscribeuser.component';
 
 import { MatCardModule } from '@angular/material/card';
 
 import { MaterialModule } from 'src/material.module';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './userComponents/footer/footer.component';
+import { HomeComponent } from './userComponents/home/home.component';
 import { AdminsidenavComponent } from './components/adminsidenav/adminsidenav.component';
 import { CommonModule } from '@angular/common';
 import { BookListComponent } from './components/book/book-list/book-list.component';
+
+import { AuthInterceptor } from './account/AuthInterceptor';
+
+import { AuthorUiComponent } from './userComponents/author-ui/author-ui.component';
+import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-selleres-ui.component';
+import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
+import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
+import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui.component';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +77,12 @@ import { BookListComponent } from './components/book/book-list/book-list.compone
     FooterComponent,
     HomeComponent,
     AdminsidenavComponent,
-    BookListComponent
+    BookListComponent,
+    AuthorUiComponent,
+    BestSelleresUiComponent,
+    BooksUiComponent,
+    EditorsUiComponent,
+    PublisherUiComponent,
   ],
   imports: [
     CommonModule, 
@@ -92,7 +107,15 @@ import { BookListComponent } from './components/book/book-list/book-list.compone
 
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+      
+    // },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,9 @@
+
+import { Component, OnInit } from '@angular/core';
+
 import { Component,OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/account/account.service';
 import { User } from 'src/app/models/user/user';
 
@@ -9,7 +14,12 @@ import { User } from 'src/app/models/user/user';
 })
 export class PageHeaderComponent implements OnInit{
     search : String ="";
+
+    currentUser$!: Observable<User |null>
+
+    currentUser$!: Observable<User |null>;
   
+
     constructor(public accountService: AccountService){}
 
     clearSearch() {
@@ -18,7 +28,7 @@ export class PageHeaderComponent implements OnInit{
     }
 
     ngOnInit(): void {
-      
+      this.currentUser$ = this.accountService.user$
     }
     logout(){
       this.accountService.logout();
