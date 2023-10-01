@@ -6,6 +6,7 @@ import { Observable, ReplaySubject, map, of } from 'rxjs';
 import { Login } from '../models/login/login';
 import { User } from '../models/user/user';
 import { Route, Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,15 @@ import { Route, Router } from '@angular/router';
 export class AccountService {
   private userSouce = new ReplaySubject <User | null>(1);
   user$ = this.userSouce.asObservable();
-
+  isUserAdmin: boolean = false; // Initialize as false
   // url : string = environment.apiBaseUrl+'/Register';
 
   constructor(private http: HttpClient, private router: Router) { }
 
-// postRegister(registarData: Register): Observable<Register | null> {
-//   return this.http.post<Register>(this.url, registarData);
-// }
+
+checkCredentials(username: string, password: string): boolean {
+  return username === 'admin@mail.com' && password === '123456';
+}
 
 refreshUser(jwt: string | null){
   if(jwt === null){
@@ -40,23 +42,47 @@ refreshUser(jwt: string | null){
 )
 }
 
-login(model: Login){
+login(model: Login): Observable<User | null> {
   return this.http.post<User>(`${environment.apiBaseUrl}/account/login`, model)
-  .pipe(
-    map((user:User) =>{
-      if(user){
-        this.setUser(user);
-        //return user;
-      }
-      //return null;
-    })
-  );
+    .pipe(
+      map((user: User) => {
+        if (user) {
+          this.setUser(user);
+          this.isUserAdmin = true;
+        }
+        return user;
+      }),
+      finalize(() => {
+        this.user$.subscribe({
+          next: (user) => {
+            if (user === null) {
+              this.router.navigateByUrl('/');
+            }
+          },
+        });
+      })
+    );
 }
+
+
+// login(model: Login){
+//   return this.http.post<User>(`${environment.apiBaseUrl}/account/login`, model)
+//   .pipe(
+//     map((user:User) =>{
+//       if(user){
+//         this.setUser(user);
+//         //return user;
+//       }
+//       //return null;
+//     })
+//   );
+// }
 
 logout(){
   localStorage.removeItem(environment.userKey);
   this.userSouce.next(null);
-  this.router.navigateByUrl('/');
+  this.router.navigateByUrl('/account/login');
+  
 }
 
   register(model: Register){
@@ -82,4 +108,3 @@ getJWT(){
     // })
   }
 }
-
