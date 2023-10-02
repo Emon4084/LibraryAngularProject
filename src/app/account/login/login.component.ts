@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit{
   submitted = false;
   errorMessages: string[] = [];
 
+
+   userName = 'admin@mail.com';
+   password = '123456';
+
   constructor(private accountServices: AccountService,
     private formBuilder: FormBuilder,
     private router: Router){
@@ -39,7 +43,15 @@ export class LoginComponent implements OnInit{
 
     this.accountServices.login(this.loginForm.value).subscribe({
       next: (response:any) =>{
-        this.router.navigateByUrl('/');
+
+        if (this.loginForm.value.userName === this.userName && this.loginForm.value.password === this.password) {
+          
+          this.router.navigateByUrl('dashboard');
+        } else {
+          
+          this.router.navigateByUrl('/');
+        }
+
         //console.log(response);
       },
       error: error =>{
@@ -47,6 +59,5 @@ export class LoginComponent implements OnInit{
       }
     })
   }
-
-  
 }
+

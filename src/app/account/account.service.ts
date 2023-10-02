@@ -14,7 +14,8 @@ import { finalize } from 'rxjs/operators';
 export class AccountService {
   private userSouce = new ReplaySubject <User | null>(1);
   user$ = this.userSouce.asObservable();
-  isUserAdmin: boolean = false; // Initialize as false
+  isUserAdmin: boolean = false; 
+  // Initialize as false
   // url : string = environment.apiBaseUrl+'/Register';
 
   constructor(private http: HttpClient, private router: Router) { }

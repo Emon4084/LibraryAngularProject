@@ -1,53 +1,42 @@
-
-.active {
-  background-color: rgb(134, 180, 8); /* Change this to your desired background color */
-  color: #070707; /* Change this to your desired text color */
-  font-weight: bold;
-  /* Add any other styles you want for the active state */
+.nav-item{
+  color: #16171B;
+    font-size: 17px;
+    font-weight: 550;
 }
-
 .nav-items {
-  padding-top: 0px;
-  background-color: #16171B;
-  .nav-item{
-  padding: 20px 20px;
-  cursor: pointer;
-  font-size: 36;
-  letter-spacing: 1px;
-  font-weight: bold;
+    padding-top: 40px;
+    background-color: #f2f4f8;
+    .nav-item
+
+  {
+    padding: 25px 50px;
+    cursor: pointer;
   
-  @media only screen and (max-width: 1300px) {
-    padding: 20px 30px;
+    @media only screen and (max-width: 1300px) {
+      padding: 25px 40px;
+    }
+  
+    &:hover
+  
+  {
+    color: #216870;
+    background-color: rgb(205, 217, 228);
+    font-size: 17px;
   }
-
-  &:hover{
-  color: #070707;
-  background-color: rgb(134, 180, 8);
-  font-weight: bold;
-}
-
-.nav-link.active {
-  color: #070707;
-  background-color: rgb(134, 180, 8);
-  font-weight: bold;
-}
-.fa-icon {
-  color: rgb(30, 123, 133);
-  margin-right: 0px;
-  font-size: 36px;
-}
-
-span {
-  display: inline;
-
-  @media only screen and (max-width: 1300px) {
-    display: none;
+  
+  .fa-icon {
+    margin-right: 20px;
+    font-size: 22px;
   }
-}
-
-}
-}
-
-
-
-
+  
+  span {
+    display: inline;
+  
+    @media only screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+  
+  }
+  }
+  

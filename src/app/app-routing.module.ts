@@ -22,15 +22,17 @@ import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
 import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-selleres-ui.component';
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'admin/navbar', component: AdminsidenavComponent, canActivate: [AuthGuard] },
+  { path: 'admin/navbar', component: AdminsidenavComponent},
+  { path: 'dashBorad', component: DashBoardComponent},
   //{ path: '**', redirectTo: '/'},
   //{path: 'login', component:LoginComponent},
   //{path: 'register', component:RegisterComponent},
-  { path:  'Publisher', component: PublisherComponent, canActivate: [AuthGuard] },
+  { path:  'Publisher', component: PublisherComponent},
   { path: 'Bookfloor', component: BookFloorComponent },
   { path: 'Subscriptions', component: SubscriptionPlanComponent },
   { path: 'Category', component: CategoryComponent },

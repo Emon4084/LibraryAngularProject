@@ -31,7 +31,7 @@
   transition: background-color 0.3s ease; /* Add a smooth hover effect */
   border-top-left-radius: 0; /* Remove border radius for the top-right corner */
   border-bottom-left-radius: 0;
-
+}
 .logo{
   color: rgb(0,41,63);
   text-decoration: none;
@@ -90,10 +90,12 @@ mat-icon{
 
 .dropdown-item {
   color: #000; /* Set font color to black */
+  cursor: pointer;
 }
 
 .dropdown-item:hover {
   background-color: #f8f9fa; /* Change background color on hover */
+  cursor: pointer;
   color: #007BFF; /* Change text color on hover */
 }
 

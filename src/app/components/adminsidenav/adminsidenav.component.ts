@@ -30,7 +30,7 @@ export class AdminsidenavComponent {
   navItems = [
     {
       label: 'Dashboard',
-      routerLink: 'Dashboard',
+      routerLink: 'dashBorad',
       iconClass: 'fa-solid fa-gauge',
       isActive: false
     },
@@ -41,8 +41,26 @@ export class AdminsidenavComponent {
       isActive: false
     },
     {
+      label: 'Subcategory',
+      routerLink: 'Subcategory',
+      iconClass: 'fa-solid fa-book-atlas',
+      isActive: false
+    },
+    {
+      label: 'Author',
+      routerLink: 'Author',
+      iconClass: 'fa-solid fa-book-atlas',
+      isActive: false
+    },
+    {
       label: 'Publisher',
       routerLink: 'Publisher',
+      iconClass: 'fa-solid fa-book-atlas',
+      isActive: false
+    },
+    {
+      label: 'Book',
+      routerLink: 'Book',
       iconClass: 'fa-solid fa-book-atlas',
       isActive: false
     },
@@ -57,7 +75,7 @@ export class AdminsidenavComponent {
       routerLink: 'Subscriptions',
       iconClass: 'fa-solid fa-forward-step',
       isActive: false
-    },
+    }
     // Add similar items for other links
   ];
 

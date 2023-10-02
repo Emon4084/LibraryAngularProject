@@ -1,109 +1,108 @@
-<div class="container-md">
-    <div class="row">
-    <div class="col-4">
-    <div *ngIf="!editingAuthor">
-      <h2>Create New Author</h2>
-      <form (submit)="createAuthor()" class="form">
-        <div class="form-group">
-          <label for="newAuthorFName">First Name:</label>
-          <input type="text" id="newAuthorFName" [(ngModel)]="newAuthor.firstName" name="newAuthorFName" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="newAuthorLName">Last Name:</label>
-          <input type="text" id="newAuthorLName" [(ngModel)]="newAuthor.lastName" name="newAuthorLName" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="newAuthorDob">DoB</label>
-          <input type="date" id="newAuthorDob" [(ngModel)]="newAuthor.birthDate" name="newAuthorDob" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="newAuthoremail">Email:</label>
-          <input type="text" id="newAuthoremail" [(ngModel)]="newAuthor.email" name="newAuthoremail" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="newAuthorphoneNumber">Phone Number:</label>
-          <input type="text" id="newAuthorphoneNumber" [(ngModel)]="newAuthor.phone" name="newAuthorphoneNumber" class="form-control" required>
-        </div>
-        <div class="form-group row">
-          <label for="newAuthorIsActive" class="col-sm-3 col-form-label">Is Active:</label>
-          <div class="col-sm-9">
-            <div class="form-check">
-              <input type="checkbox" id="newAuthorIsActive" [(ngModel)]="newAuthor.isActive" name="newAuthorIsActive" class="form-check-input mt-2" required>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-      </form>
-    </div>
-    <div *ngIf="editingAuthor">
-      <h2>Edit Author</h2>
-      <form (submit)="saveEdit()" class="form">
-        <input type="hidden" [(ngModel)]="editingAuthor.authorId" name="editAuthorid">
-        <div class="form-group">
-            <label for="editAuthorFName">First Name:</label>
-            <input type="text" id="editAuthorFName" [(ngModel)]="editingAuthor.firstName" name="editAuthorFName" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="editAuthorLName">Last Name:</label>
-            <input type="text" id="editAuthorLName" [(ngModel)]="editingAuthor.firstName" name="editAuthorLName" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="editAuthorDob">DoB</label>
-            <input type="date" id="newAuthorDob" [(ngModel)]="editingAuthor.birthDate" name="editAuthorDob" class="form-control" required>
-          </div>
-        <div class="form-group">
-          <label for="editAuthoremail">Email:</label>
-          <input type="text" id="editAuthoremail" [(ngModel)]="editingAuthor.email" name="editAuthoremail" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="editAuthorphoneNumber">Phone Number:</label>
-          <input type="text" id="editAuthorphoneNumber" [(ngModel)]="editingAuthor.phone" name="editAuthorphoneNumber" class="form-control" required>
-        </div>
-        <div class="form-group row">
-          <label for="editAuthorIsActive" class="col-sm-3 col-form-label">Is Active:</label>
-          <div class="col-sm-9">
-            <div class="form-check">
-              <input type="checkbox" id="editAuthorIsActive" [(ngModel)]="editingAuthor.isActive" name="editAuthorIsActive" class="form-check-input mt-2" required>
-            </div>
-          </div>
-        </div>
-  
-        <button type="submit" class="btn btn-primary">Save</button>
-      </form>
-    </div>
-    </div>
-    <div class="col-8">
-      <h2>Author List</h2>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>SL</th>
-            <th>Author First Name</th>
-            <th>Author Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Is Active?</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let author of authors">
-            <td>{{ author.authorId }}</td>
-            <td>{{ author.firstName }}</td>
-            <td>{{ author.lastName }}</td>
-            <td>{{ author.birthDate }}</td>
-            <td>{{ author.email }}</td>
-            <td>{{ author.phone }}</td>
-            <td>{{ author.isActive }}</td>
-            <td>
-              <button (click)="editAuthor(author)" class="btn btn-warning">Edit</button>
-              <button (click)="deleteAuthor(author.authorId)" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<div class="container">
+  <div class="row p-4">
+  <div class="col-md-3">
+  <div *ngIf="!editingAuthor">
+    <h2>Create New Author</h2>
+    <form (submit)="createAuthor()" class="form">
+      <div class="form-group py-3">
+        <label for="newAuthorFName">First Name:</label>
+        <input type="text" id="newAuthorFName" [(ngModel)]="newAuthor.firstName" name="newAuthorFName" class="form-control" required>
       </div>
+      <div class="form-group">
+        <label for="newAuthorLName">Last Name:</label>
+        <input type="text" id="newAuthorLName" [(ngModel)]="newAuthor.lastName" name="newAuthorLName" class="form-control" required>
+      </div>
+      <div class="form-group py-3">
+        <label for="newAuthorDob">DoB</label>
+        <input type="date" id="newAuthorDob" [(ngModel)]="newAuthor.birthDate" name="newAuthorDob" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="newAuthoremail">Email:</label>
+        <input type="text" id="newAuthoremail" [(ngModel)]="newAuthor.email" name="newAuthoremail" class="form-control" required>
+      </div>
+      <div class="form-group py-3">
+        <label for="newAuthorphoneNumber">Phone Number:</label>
+        <input type="text" id="newAuthorphoneNumber" [(ngModel)]="newAuthor.phone" name="newAuthorphoneNumber" class="form-control" required>
+      </div>
+      <div class="form-group row">
+        <label for="newAuthorIsActive" class="col-sm-3 col-form-label">Is Active:</label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <input type="checkbox" id="newAuthorIsActive" [(ngModel)]="newAuthor.isActive" name="newAuthorIsActive" class="form-check-input mt-2" required>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+  <div *ngIf="editingAuthor">
+    <h2>Edit Author</h2>
+    <form (submit)="saveEdit()" class="form">
+      <input type="hidden" [(ngModel)]="editingAuthor.authorId" name="editAuthorid">
+      <div class="form-group">
+          <label for="editAuthorFName">First Name:</label>
+          <input type="text" id="editAuthorFName" [(ngModel)]="editingAuthor.firstName" name="editAuthorFName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="editAuthorLName">Last Name:</label>
+          <input type="text" id="editAuthorLName" [(ngModel)]="editingAuthor.firstName" name="editAuthorLName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="editAuthorDob">DoB</label>
+          <input type="date" id="newAuthorDob" [(ngModel)]="editingAuthor.birthDate" name="editAuthorDob" class="form-control" required>
+        </div>
+      <div class="form-group">
+        <label for="editAuthoremail">Email:</label>
+        <input type="text" id="editAuthoremail" [(ngModel)]="editingAuthor.email" name="editAuthoremail" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="editAuthorphoneNumber">Phone Number:</label>
+        <input type="text" id="editAuthorphoneNumber" [(ngModel)]="editingAuthor.phone" name="editAuthorphoneNumber" class="form-control" required>
+      </div>
+      <div class="form-group row">
+        <label for="editAuthorIsActive" class="col-sm-3 col-form-label">Is Active:</label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <input type="checkbox" id="editAuthorIsActive" [(ngModel)]="editingAuthor.isActive" name="editAuthorIsActive" class="form-check-input mt-2" required>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
   </div>
   </div>
-  
+  <div class="col-md-6">
+    <h2 class=" text-dark">Author List</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-center text-dark">
+          <th class=" text-dark">SL</th>
+          <th class=" text-dark">First Name</th>
+          <th class=" text-dark">Last Name</th>
+          <th class=" text-dark">DoB</th>
+          <th class=" text-dark">Email</th>
+          <th class=" text-dark">Phone</th>
+          <th class=" text-dark">Active</th>
+          <th class=" text-danger">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors" class="text-center">
+          <td class="text-dark">{{ author.authorId }}</td>
+          <td class="text-dark">{{ author.firstName }}</td>
+          <td class="text-dark">{{ author.lastName }}</td>
+          <td class="text-dark">{{ author.birthDate }}</td>
+          <td class="text-dark">{{ author.email }}</td>
+          <td class="text-dark">{{ author.phone }}</td>
+          <td class="text-dark">{{ author.isActive }}</td>
+          <td class="d-flex">
+            <button (click)="editAuthor(author)" class="btn btn-sm btn-warning mx-2">Edit</button>
+            <button (click)="deleteAuthor(author.authorId)" class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>
+</div>

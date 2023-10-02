@@ -195,9 +195,14 @@
 
       
         <mat-table [dataSource]="dataSource" matSort>
-          <ng-container matColumnDef="categoryId">
+          <!-- <ng-container matColumnDef="categoryId">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">SL</mat-header-cell>
             <mat-cell *matCellDef="let category" class="celvalue">{{ category.categoryId }}</mat-cell>
+          </ng-container> -->
+          
+          <ng-container matColumnDef="serialNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Serial Number </mat-header-cell>
+            <mat-cell *matCellDef="let brand; let i = index">{{ calculateRomanNumeral(i) }}</mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="categoryName">

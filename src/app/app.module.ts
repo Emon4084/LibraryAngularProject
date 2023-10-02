@@ -54,6 +54,7 @@ import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-
 import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui.component';
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui
     BooksUiComponent,
     EditorsUiComponent,
     PublisherUiComponent,
+    DashBoardComponent,
   ],
   imports: [
     CommonModule, 

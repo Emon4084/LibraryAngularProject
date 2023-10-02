@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { Component,OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/account/account.service';
@@ -17,7 +16,6 @@ export class PageHeaderComponent implements OnInit{
 
     currentUser$!: Observable<User |null>
 
-    currentUser$!: Observable<User |null>;
   
 
     constructor(public accountService: AccountService){}
