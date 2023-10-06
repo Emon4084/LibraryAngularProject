@@ -15,6 +15,7 @@ export class BookService {
   getBooks():Observable<Book[]>{
     return this.http.get<Book[]>(this.url);
   }
+  
   getBook(id: number): Observable<Book | null> {
     return this.http.get<Book>(`${this.url}/${id}`);
   }

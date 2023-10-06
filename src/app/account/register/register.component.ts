@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user/user';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +16,16 @@ export class RegisterComponent implements OnInit{
   errorMessages: string[] = [];
 
   constructor(private accountServices: AccountService,
-    private formBuilder: FormBuilder){}
+    private formBuilder: FormBuilder,
+    private router: Router) {
+      this.accountServices.user$.pipe(take(1)).subscribe({
+        next: (user: User | null) =>{
+          if(user){
+            this.router.navigateByUrl('/')
+          }
+        }
+      })
+    }
 
   ngOnInit(): void {
     this.initializeForm();

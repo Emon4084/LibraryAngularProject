@@ -39,17 +39,14 @@
             <p>Book</p>
             <h5 class="card-title">{{ book.title }}</h5>
             <div>
-
-
-
-
-
               <ng-container *ngFor="let bookAuthor of book.bookAuthor; let isLast = last">
                   {{ getAuthorName(bookAuthor.authorId) }}
                   <ng-container *ngIf="!isLast">, </ng-container>
               </ng-container>
             </div>
-            <span>3/5</span>
+            <span>3/5</span><br>
+
+            <a routerLink="/borrow-book" class="borrow btn btn-sm">Borrow Book</a>
           </div>
         </div>
 

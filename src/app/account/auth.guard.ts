@@ -7,7 +7,8 @@ import {
   Router  
 } from '@angular/router';
 import { AccountService } from './account.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { User } from '../models/user/user';
 
 @Injectable({
   providedIn:'root'
@@ -15,14 +16,20 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, private accountService: AccountService){}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): 
-  boolean {
-    // Check if the user is logged in.
-      if(localStorage.getItem('isLoggedIn') === 'true') {
-        return true;
-      }
-      // The user is not logged in, so redirect them to the login page.
-    this.router.navigate(['/login']);
-    return false;
+  Observable<boolean> {
+      // if(localStorage.getItem('isLoggedIn') === 'true') {
+      //   return true;
+      // }
+      return this.accountService.user$.pipe(
+        map((user: User | null) => {
+          if (user || localStorage.getItem('isLoggedIn') === 'true') {
+            return true;
+          } else {
+            this.router.navigate(['account/login'], { queryParams: { returnUrl: state.url } }); 
+            return false;
+          }
+        })
+      );
   }
   
 

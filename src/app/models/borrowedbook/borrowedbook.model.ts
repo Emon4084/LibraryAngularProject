@@ -4,12 +4,12 @@ import { ApplicationUser } from "../userinfo/applicationuser.model";
 
 export class Borrowedbook {
   constructor(
-    public BorrowID: Number = 0,
-    public userInofId?: number,
+    public BorrowID?: number,
+    public userInfoId?: number,
     public UserInfo?: ApplicationUser,
-    public bookId?: Number,
+    public bookId?: number,
     public book?: Book,
-    public copyId?: Number,
+    public copyId?: number,
     public copy?: BookCopy,
     public BorrowDate?: string,
     public DueDate?: string, 

@@ -55,6 +55,9 @@ import { BooksUiComponent } from './userComponents/books-ui/books-ui.component';
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 import { PublisherUiComponent } from './userComponents/publisher-ui/publisher-ui.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { SearchComponent } from './components/search/search.component';
+import { BorrowBookComponent } from './userComponents/borrow-book/borrow-book.component';
+import { BookCopyComponent } from './components/book-copy/book-copy.component';
 
 
 @NgModule({
@@ -85,6 +88,9 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
     EditorsUiComponent,
     PublisherUiComponent,
     DashBoardComponent,
+    SearchComponent,
+    BorrowBookComponent,
+    BookCopyComponent,
   ],
   imports: [
     CommonModule, 
@@ -110,13 +116,12 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
     MaterialModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true,
-      
-    // },
-    AuthGuard
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    // AuthGuard
   ],
   bootstrap: [AppComponent]
 })

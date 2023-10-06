@@ -1,0 +1,24 @@
+<div class="container">
+<div class="main-content" *ngIf="book">
+    <div class="card-bg">
+        <div class="card-img img">
+          <img
+            src="{{ book.coverFileName }}"
+            class="card-img-top"
+            alt="..."draggable="false"
+          /> 
+        </div>
+      </div>
+    <div class="content">
+        <h5 class="card-title"><b>Book Name : </b>{{ book.title}}</h5>
+        <p><b>Author : </b>{{book.bookAuthor}}</p>
+        <p><b>Category</b> - <span>Unassigned</span></p>
+        <p><b>ISBN - </b> <span>{{book.isbn}}</span></p>
+        
+        <p><b>Description </b>
+            <br>{{book.description}}</p>
+        <a href="" class="text-danger border border-danger p-1 Preview">Preview Book</a>
+        <button class="text-success border border-success p-1 m-3 borrow" (click)="sendRequest()">Borrow Book</button>
+    </div>
+</div>
+</div>

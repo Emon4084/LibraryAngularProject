@@ -28,7 +28,6 @@ this.getAuthors();
       (data: Book[]) => {
         this.books = data;
   
-        // Log the received data to the console for debugging
         console.log('Books:', this.books);
       },
       (error) => {
@@ -36,6 +35,7 @@ this.getAuthors();
       }
     );   
   }
+
   getAuthors(): void {
     this.authorService.getAuthors().subscribe((res) => {
       this.authors = res;

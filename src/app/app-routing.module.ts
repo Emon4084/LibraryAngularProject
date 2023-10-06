@@ -23,6 +23,8 @@ import { BestSelleresUiComponent } from './userComponents/best-selleres-ui/best-
 import { EditorsUiComponent } from './userComponents/editors-ui/editors-ui.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { BorrowBookComponent } from './userComponents/borrow-book/borrow-book.component';
+//import { AuthorizationGuard } from './gurads/authorization.guard';
 
 
 const routes: Routes = [
@@ -40,7 +42,15 @@ const routes: Routes = [
   { path: 'Author', component: AuthorComponent },
   { path: 'Book', component: BookComponent },
   {path: 'account', loadChildren:() => import('./account/account.module').then(module => module.AccountModule)},
-
+  //{path: 'borrow-book/:id', component: BorrowBookComponent},
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children:[
+      {path: 'borrow-book/:id', component: BorrowBookComponent}
+    ]
+  },
 
   {path:'authorui', component:AuthorUiComponent},
   {path:'publisherui', component:PublisherUiComponent},

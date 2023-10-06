@@ -1,0 +1,12 @@
+
+.search-input {
+    border-radius: 25px; /* Add rounded corners */
+    width: auto;
+    padding: 10px 20px; /* Add some padding for better spacing */
+    border: 1px solid #ccc; /* Add a border */
+    font-size: 16px; /* Adjust the font size */
+    border-top-right-radius: 0; /* Remove border radius for the top-right corner */
+    border-bottom-right-radius: 0;
+    
+  }
+  
