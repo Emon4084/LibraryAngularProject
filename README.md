@@ -1,5 +1,12 @@
 # LibraryAngularUIR53A
 
+Login: 
+user name: admin@mail.com
+pass: 123456
+
+user name: manager
+pass: 123456
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
 ## Development server
